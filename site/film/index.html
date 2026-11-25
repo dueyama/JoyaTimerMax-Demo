@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <script src="/JoyaTimerMax-Demo/joya-language.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080e17">
+  <meta data-en-content="A journey through four seasons, from spring blossoms to a winter sky full of stars. Watch the original Amiga demo above its real-time 3D remake." name="description" content="夕暮れの湖畔のタイトルから、春の朝、夏の湖、秋の夕日、冬の銀河へ。上段にAmiga原版、下段に3D完成版を並べた比較映像とリアルタイム3Dデモ。">
+  <title data-en="Joya Timer Max — Echoes of the Four Seasons">Joya Timer Max — 四季の残響</title>
+  <style>
+    :root{color-scheme:dark;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Hiragino Sans","Noto Sans JP",sans-serif;background:#080e17;color:#e5e9ee}
+    *{box-sizing:border-box}body{margin:0}main{max-width:1440px;margin:auto;padding:24px clamp(16px,3vw,44px) 40px}
+    header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:18px}h1{font-size:clamp(20px,2vw,27px);font-weight:500;letter-spacing:.06em;margin:0}header p{font-size:14px;color:#aab8c7;margin:0}
+    video{display:block;width:100%;height:auto;aspect-ratio:1280/1808;max-height:76vh;object-fit:contain;background:#080e17}
+    .actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:20px 0 12px}a{color:#bdcee3;text-underline-offset:.2em}a:hover{color:#f1dfb8}
+    .launch{display:inline-block;padding:12px 20px;border:1px solid #b69c68;background:#201e19;color:#efdfbb;border-radius:5px;text-decoration:none;font-size:16px;font-weight:500}.save{font:inherit;font-size:16px;padding:10px 4px;background:none;border:0;color:#bdcee3;cursor:pointer;text-decoration:underline;text-underline-offset:.2em}.save:disabled{opacity:.6;cursor:wait}
+    button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #efdfbb;outline-offset:5px}.note,.music,.sky,details{font-size:14px;line-height:1.8;color:#aab8c7}.music{margin:16px 0 8px;color:#d6dfe8}.note{margin:0}.sky{max-width:85ch;margin-top:24px}
+    details{margin-top:12px;max-width:85ch}summary{cursor:pointer;color:#c7d5e6}details p{margin:10px 0}
+    @media(max-width:600px){main{padding-top:18px}header{align-items:flex-start;flex-direction:column;gap:6px}.actions{gap:10px}.launch{width:100%;text-align:center}video{max-height:none}}
+      header{position:relative;padding-right:5.5rem}header [data-language-switch]{position:absolute;right:0;top:0;border:1px solid #718092;border-radius:5px;padding:.4rem .7rem;background:#121b27;color:#e5e9ee;cursor:pointer;font:inherit;font-size:.9rem}
+  </style>
+</head>
+<body>
+  <main>
+    <header><h1>JOYA TIMER MAX</h1><p data-en="Amiga original × 3D remake · 1 min 47.7 sec">Amiga原版 × 3D完成版 · 1分47.7秒</p><button type="button" data-language-switch>English</button></header>
+    <video id="film" controls playsinline preload="metadata" poster="poster.jpg?v=6ff4dc31" aria-label="上段にAmiga原版、下段に3D完成版を並べた比較映像" data-en-aria-label="Comparison film with the Amiga original above the 3D remake">
+    </video>
+    <nav class="actions" aria-label="鑑賞方法" data-en-aria-label="Ways to watch">
+      <a data-language-link class="launch" href="/JoyaTimerMax-Demo/demo.html?mode=demo&amp;composition=original&amp;quality=cinema&amp;sync=recorded&amp;frame=reference" data-en="Play in real-time 3D">リアルタイム3Dで再生</a>
+      <button class="save" id="download-film" type="button" data-en="Download MP4">MP4を保存</button>
+    </nav>
+    <p id="media-status" role="status" class="note" hidden></p>
+    <p class="note" data-en="For the highest-quality real-time edition, open the demo in a WebGPU browser on PC or Mac. The first visit may take a moment while the scenery loads.">リアルタイム版はPC・Mac向けです。WebGPU対応ブラウザで開いてください。高画質の景色を準備するため、最初の読み込みに時間がかかる場合があります。</p>
+    <p class="music" data-en="The Amiga original plays on top and the 3D remake below, with audio from the Amiga original.">上段はAmiga原版、下段は3D完成版。音声はAmiga原版のみです。</p>
+    <p class="sky"><span data-en="Milky Way: ">銀河：</span><a href="https://www.eso.org/public/images/eso0932a/">ESO/S. Brunier</a><span data-en=" (">（</span><a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a><span data-en="). Stars were extracted from the source image and reprojected, with adjustments to their relative colors and brightness.">）。原画像から星を抽出し、再投影・相対的な色と光量の調整を行っています。</span></p>
+    <details>
+      <summary data-en="Credits">クレジット</summary>
+      <p><span data-en="Original: JoyaTimerAmiga · 3D remake: JoyaTimerMax">原作：JoyaTimerAmiga ／ 3D制作：JoyaTimerMax</span><br><span data-en="Real-time rendering: Three.js · Production tools: Codex and Blender">リアルタイム描画：Three.js ／ 制作：Codex・Blender</span></p>
+      <p><span data-en="Materials and winter conifers: ">素材・冬の針葉樹：</span><a href="https://polyhaven.com/license"><span data-en="Poly Haven (CC0)">Poly Haven（CC0）</span></a><br><span data-en="Rustling autumn leaves: ">秋の葉音：</span><a href="https://freesound.org/s/443065/"><span data-en="AmberdeMeillon (CC0)">AmberdeMeillon（CC0）</span></a><br><span data-en="Japanese maple: ">日本の楓：</span><a href="https://mantissa.xyz/free.html"><span data-en="Midge Sinnaeve (CC0)">Midge Sinnaeve（CC0）</span></a><br><span data-en="Lunar map: ">月の地図：</span><a href="https://svs.gsfc.nasa.gov/4720/"><span data-en="NASA SVS, LROC and LOLA">NASA SVS・LROC・LOLA</span></a></p>
+    </details>
+  </main>
+<script type="module" src="film-player.js?v=bilingual1"></script>
+</body>
+</html>

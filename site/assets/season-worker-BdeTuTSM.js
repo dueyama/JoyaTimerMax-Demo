@@ -1,0 +1,1 @@
+const e=import(`./worker-renderer-C8da2iNM.js`).then(e=>e.t);self.onmessage=async({data:t})=>{try{await(await e).handleSceneRequest(t)}catch(e){self.postMessage({type:`error`,message:String(e)})}};

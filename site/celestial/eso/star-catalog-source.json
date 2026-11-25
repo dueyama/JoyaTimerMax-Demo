@@ -1,0 +1,203 @@
+{
+  "revision": "iteration16-eso-point-catalogue-plus-seamless-residual-v3",
+  "sourceCredit": "ESO/S. Brunier",
+  "sourcePage": "https://www.eso.org/public/images/eso0932a/",
+  "license": "CC-BY-4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+  "sourceSHA256": "10f209ab83e1fd89e7fa1ed70277ffc6ed19c43549f04ec637c6806d98aff035",
+  "starCount": 100000,
+  "starStrideFloats": 8,
+  "starBinary": "detected-points.f32le.bin",
+  "starFlags": "detected-points.flags.u8.bin",
+  "residualTexture": "unresolved-linear-to-srgb-4096.png",
+  "residualWidth": 4096,
+  "residualHeight": 2048,
+  "basisRows": [
+    [
+      -0.5726275428128338,
+      0.580153104295228,
+      -0.5792409453662151
+    ],
+    [
+      -0.1793368083043082,
+      0.6007933276526236,
+      0.7790286815229021
+    ],
+    [
+      0.79996000299975,
+      0.5499725020623282,
+      -0.23998800089992497
+    ]
+  ],
+  "photographicSkyPixels": true,
+  "starSchema": {
+    "path": "detected-points.f32le.bin",
+    "count": 100000,
+    "bytes": 3200000,
+    "sha256": "f708dc80a8ea2617c3d295c1b5f0fc20c94e3cefec9f04760cb71dbc276e0164",
+    "endian": "little",
+    "dtype": "float32",
+    "strideFloats": 8,
+    "strideBytes": 32,
+    "columns": [
+      "worldDirectionX",
+      "worldDirectionY",
+      "worldDirectionZ",
+      "linearChromaR",
+      "linearChromaG",
+      "linearChromaB",
+      "log2RelativeIntegratedMaxRGBFlux",
+      "angularSigmaRadians"
+    ],
+    "fluxUnits": "relative linearized source RGB integrated over solid angle; not physical HDR radiance",
+    "reconstruction": "fluxRGB=linearChromaRGB*exp2(log2RelativeIntegratedMaxRGBFlux)",
+    "directionNormMaxDeviation": 1.374715392632453e-07,
+    "log2FluxRange": [
+      -22.426979064941406,
+      -15.536417961120605
+    ]
+  },
+  "flagsSchema": {
+    "path": "detected-points.flags.u8.bin",
+    "bytes": 100000,
+    "sha256": "eda64d44a21084d0b7c3081949a96b3430f1a872f98f2f341d83b31097b3ffbe",
+    "bit0": "saturated core",
+    "bit1": "astrometric identity unconfirmed"
+  },
+  "textureSchema": {
+    "path": "unresolved-linear-to-srgb-4096.png",
+    "width": 4096,
+    "height": 2048,
+    "channelsOnDisk": "RGB8 PNG",
+    "bytes": 3573936,
+    "sha256": "d89c31108f7015543b01e66e0487dc31a7f7336e51285e4e95744e28803ed5f9",
+    "textureColorSpace": "Three.SRGBColorSpace: PNG encodes linear residual with standard sRGB OETF",
+    "decodedAngularRGBIntegral": [
+      0.18527285482996134,
+      0.16212161585932539,
+      0.17808928594686568
+    ],
+    "encodedQuantizationLinearMeanAbsoluteErrorRGB": [
+      0.00013468893303070217,
+      0.0001271884684683755,
+      0.00013305037282407284
+    ],
+    "decodedPoleRowMaxRGBRange": [
+      0.0,
+      0.0
+    ],
+    "gpuRGBA8WithFullMipsBytes": 44739242
+  },
+  "projection": {
+    "kind": "creative galactic plate-carree; not a fitted WCS",
+    "forwardUVToGalactic": "longitude = -2*pi*(u-.5); latitude = pi*(.5-v)",
+    "worldBasisRows": [
+      [
+        -0.5726275428128338,
+        0.580153104295228,
+        -0.5792409453662151
+      ],
+      [
+        -0.1793368083043082,
+        0.6007933276526236,
+        0.7790286815229021
+      ],
+      [
+        0.79996000299975,
+        0.5499725020623282,
+        -0.23998800089992497
+      ]
+    ],
+    "worldDirectionToGalactic": "worldDirection * transpose(worldBasisRows)",
+    "shaderUV": "u = fract(.5 - atan2(gal.y,gal.x)/(2*pi)); v = .5 - asin(clamp(gal.z,-1,1))/pi",
+    "imageOrigin": "PNG row0 is north / top",
+    "threeUpload": "TextureLoader default flipY=true; sample shader texture coordinate (u,1-v)",
+    "alternativeUpload": "flipY=false: sample (u,v); choose one convention and keep it explicit",
+    "wrapS": "RepeatWrapping",
+    "wrapT": "ClampToEdgeWrapping",
+    "seam": "source and residual smoothing wrap longitude; RepeatS linear sampling crosses stored edge without duplicated endpoints",
+    "poles": "first/last texture rows each constant across longitude, blended into adjacent 2 rows",
+    "poleAtanGuard": "at exactly gal.x=gal.y=0 choose u=.5 before atan2 to avoid undefined (0,0)"
+  },
+  "inputPhotometry": "processed official RGB8 sRGB photographic LDR, relative scene-linear color/flux, not calibrated astronomical HDR",
+  "artisticMapping": {
+    "defaultStarPSFScale": 0.45,
+    "defaultExposureGain": 1,
+    "defaultResidualGain": 1,
+    "defaultMinimumPixelSigma": 0.35,
+    "psfScaleRange": [
+      0.1,
+      2
+    ],
+    "exposureGainRange": [
+      0.1,
+      4
+    ],
+    "residualGainRange": [
+      0.1,
+      2
+    ],
+    "minimumPixelSigmaRange": [
+      0.2,
+      1
+    ],
+    "policy": "width/gain change is bounded artistic sampling/exposure, not inferred stellar radius or calibrated HDR"
+  },
+  "scopeLimit": [
+    "strict stellar identities and WCS remain unconfirmed; 20 bright source anchors are internal creative-sky checks",
+    "photo input is processed 8-bit LDR; runtime emission gain is artistic, not measured HDR",
+    "PSF clipping and lowpass prevent exact photographic reconstruction; residual is a separate unresolved signal",
+    "camera previews are CPU angular Gaussian references, not actual native octahedra / TAA / AgX / bloom",
+    "native color, solar/moon occlusion, MRT/probe/PMREM, cold parse/upload and GPU timing require root verification",
+    "no AAA claim"
+  ],
+  "photometricChecks": {
+    "sourceAngularRGBIntegral": [
+      0.23317605890798007,
+      0.2007231028321303,
+      0.2287811707734467
+    ],
+    "pointModelAngularRGBIntegral": [
+      0.057504534564102566,
+      0.0458937320541715,
+      0.06092194790143997
+    ],
+    "signedResidualAngularRGBIntegral": [
+      0.17567152436264022,
+      0.15482937079317022,
+      0.1678592228851707
+    ],
+    "positiveResidualAngularRGBIntegral": [
+      0.1852657334082073,
+      0.162113353082405,
+      0.17808268337297173
+    ],
+    "filteredResidualAngularRGBIntegral": [
+      0.18526272441565594,
+      0.16211080474809236,
+      0.17807983318856302
+    ],
+    "nonnegativeClippingExcessRelativeToSource": [
+      0.04114577238546304,
+      0.03628870910453464,
+      0.04468663418951092
+    ],
+    "limit": "fixed approximate PSF can exceed local source pixels; clipping is recorded, not an exact photometric decomposition"
+  },
+  "actualSelectedCompactMaxima": 100000,
+  "uniqueBeforeCap": 364120,
+  "warmPointCount": 16250,
+  "bluePointCount": 24024,
+  "saturatedCoreCount": 309,
+  "strictIdentifiedStarCount": 0,
+  "payloadBytesExcludingJSON": 6873936,
+  "copyrightNote": "ESO/S. Brunier — CC BY 4.0. Modified: compact-source detection, galactic reprojection, relative flux and unresolved residual decomposition.",
+  "offlineInput": "assets/source/eso/eso0932a-original.tif; original public 18MP image, not the unavailable 800MP work",
+  "offlineEvidence": "evidence/iteration-16/sky-catalog/v3-texture/metadata.json",
+  "scripts": [
+    "tools/intake_eso_sky.py",
+    "tools/extract_eso_sky_catalog.py",
+    "tools/build_eso_unresolved_texture.py",
+    "tools/promote_eso_sky_assets.py"
+  ]
+}

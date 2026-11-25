@@ -1,0 +1,171 @@
+{
+  "version": 1,
+  "authoring": "Original JoyaTimerMax geometry; not a measured replica of a named cultural property",
+  "units": "metres",
+  "axes": "glTF / Three: X right, Y up, Z towards front; Blender Y is negated into Three Z",
+  "bell": {
+    "node": "bell_root",
+    "bodyNode": "bell_body",
+    "hangerNode": "bell_hanger",
+    "bottomY": 2.7,
+    "bodyHeight": 1.95,
+    "mouthOuterDiameter": 1.5,
+    "mouthInnerDiameter": 1.218,
+    "chiCount": 108,
+    "chiLayout": "4 x 5 x 5 + 4 x 2",
+    "tsukizaCount": 2,
+    "lotusPetalCount": 8,
+    "strikePoint": [
+      0,
+      3.35,
+      0.7290000000000001
+    ],
+    "strikeNormal": [
+      0,
+      0,
+      1
+    ],
+    "strikePlaneZ": 0.7290000000000001,
+    "suspensionPoint": [
+      0,
+      4.966,
+      0
+    ],
+    "flatContactRadius": 0.1,
+    "closedShoulder": true,
+    "openMouth": true,
+    "clapper": false,
+    "notes": "Modern Japanese wa-sho form; opposing dragon axis aligned with the two tsukiza"
+  },
+  "striker": {
+    "rigNode": "striker_pivot",
+    "logNode": "striker_log",
+    "ropeNodes": [
+      "rope_left",
+      "rope_right"
+    ],
+    "ropeRoles": {
+      "rope_left": "far_from_bell",
+      "rope_right": "near_bell"
+    },
+    "rigOrigin": [
+      0,
+      6.126684,
+      2.036778
+    ],
+    "ropeAttachmentsThree": [
+      [
+        0,
+        3.535,
+        2.489
+      ],
+      [
+        0,
+        3.535,
+        1.169
+      ]
+    ],
+    "ropeAnchorsThree": [
+      [
+        0,
+        6.126684,
+        2.696778
+      ],
+      [
+        0,
+        6.126684,
+        1.376778
+      ]
+    ],
+    "ropeLength": 2.6,
+    "ropeSeparation": 1.32,
+    "attachmentOffsetAboveLogCenter": 0.185,
+    "logLength": 2.2,
+    "logRadius": 0.17,
+    "contactTheta": 0.08,
+    "withdrawThetaSuggested": -0.235,
+    "restThetaSuggested": 0,
+    "logLocalAtContact": [
+      0,
+      -2.7766844363868106,
+      -0.207778204319849
+    ],
+    "nearEndLocal": [
+      0,
+      0,
+      -1.1
+    ],
+    "nearEndNormal": [
+      0,
+      0,
+      -1
+    ],
+    "motionPlane": "YZ; pivot X",
+    "thetaConvention": "theta < contactTheta withdraws towards viewer; theta=0.08 is first end-grain contact",
+    "updateThree": {
+      "logPositionX": "0",
+      "logPositionY": "-ropeLength * cos(theta) - attachmentOffsetAboveLogCenter",
+      "logPositionZ": "-ropeLength * sin(theta)",
+      "logRotation": "identity; timber stays horizontal",
+      "eachRopeRotationX": "theta",
+      "rigRotation": "identity; fixed upper supports",
+      "contactGap": "nearEndWorldZ - bell.strikePlaneZ; nonnegative, zero at theta=contactTheta",
+      "deltaFromContactY": "ropeLength * (cos(contactTheta) - cos(theta))",
+      "deltaFromContactZ": "ropeLength * (sin(contactTheta) - sin(theta))",
+      "maxTheta": "contactTheta; never advance past the raised tsukiza plane"
+    },
+    "collisionTolerance": 2e-05,
+    "pullRopeSide": "near bell / positive Blender Y / negative Three Z end",
+    "notes": "Parallel four-bar motion with two longitudinal suspension ropes; do not rotate the entire rig or hit with the log side"
+  },
+  "building": {
+    "form": "four open sides; four circular inward-battered pillars; curved tiled gable roof",
+    "foundationTopY": 1.09,
+    "foundationWidth": 6.36,
+    "foundationDepth": 4.86,
+    "roofWidth": 8.0,
+    "roofDepth": 6.6,
+    "ridgeY": 8.959999999999999,
+    "frontDirection": [
+      0,
+      0,
+      1
+    ]
+  },
+  "materials": {
+    "bronze": "bronze",
+    "bronze_raised": "bronze",
+    "bronze_recess": "bronze",
+    "bronze_strike_worn": "bronze",
+    "wood": "wood",
+    "wood_light": "wood",
+    "wood_dark": "wood",
+    "wood_end": "wood",
+    "wood_end_ring": "wood",
+    "stone": "stone",
+    "stone_light": "stone",
+    "stone_dark": "stone",
+    "roof": "roof",
+    "roof_light": "roof",
+    "roof_dark": "roof",
+    "snow": "snow",
+    "rope": "rope",
+    "rope_shadow": "rope",
+    "iron": "iron"
+  },
+  "referenceUrls": [
+    "https://online.bunka.go.jp/heritages/detail/230821",
+    "https://www.minato-rekishi.com/museum/2018/11/post-3.html",
+    "https://kotabechuzo.jp/bonsho/",
+    "https://jodoshuzensho.jp/daijiten/index.php/%E6%92%9E%E6%9C%A8",
+    "https://online.bunka.go.jp/heritages/detail/284256",
+    "https://www.pref.gifu.lg.jp/page/3728.html"
+  ],
+  "geometry": {
+    "meshNodes": 16,
+    "triangles": 682168,
+    "vertices": 392730,
+    "materials": 19,
+    "validated": true
+  }
+}
